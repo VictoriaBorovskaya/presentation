@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ИИ-агенты: Полное руководство</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="presentation">
+        <!-- Progress Bar -->
+        <!-- <div class="progress-bar">
+            <div class="progress-fill"></div>
+        </div> -->
+
+        <!-- Slide 1: AI, LLM, Agent Definitions -->
+        <div class="slide active" data-slide="1">
+            <div class="slide-content">
+                <div class="slide-number">1 / 14</div>
+                <h1>Что такое ИИ-агент?</h1>
+                <div class="definitions-grid">
+                    <div class="definition-card">
+                        <h3>ИИ (Искусственный интеллект)</h3>
+                        <p>Общий термин для систем, которые могут выполнять задачи, требующие человеческого (или близкого к нему) интеллекта: распознавание образов, речи, принятие решений, анализ данных и другие.</p>
+                    </div>
+                    <div class="definition-card">
+                        <h3>LLM (Большие языковые модели)</h3>
+                        <p>Подтип искусственного интеллекта — нейронная сеть, специализированная на работе с человеческим языком (анализ, генерация, перевод, обработка текста)</p>
+                        <p style="padding-top: 10px;">Например: GigaChat, GPT-4, Grok 4</p>
+                    </div>
+                    <div class="definition-card highlighted">
+                        <h3>ИИ-агенты</h3>
+                        <p>Автономная система, которая действует с использованием искусственного интеллекта и предназначена для выполнения задач или достижения целей без постоянного прямого управления человеком.</p>
+                        <p style="padding-top: 10px;">Например: баланс по карте, подбор вклада, идентификация</p>
+                    </div>
+                </div>
+                
+                <!-- <div class="comparison-table">
+                    <h2>Сравнительная таблица характеристик</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Характеристика</th>
+                                <th>ИИ</th>
+                                <th>LLM</th>
+                                <th>ИИ-агенты</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Автономность</td>
+                                <td>Низкая</td>
+                                <td>Отсутствует</td>
+                                <td class="highlight">Высокая</td>
+                            </tr>
+                            <tr>
+                                <td>Планирование</td>
+                                <td>Ограниченное</td>
+                                <td>Нет</td>
+                                <td class="highlight">Есть</td>
+                            </tr>
+                            <tr>
+                                <td>Инструменты</td>
+                                <td>Базовые</td>
+                                <td>Не использует</td>
+                                <td class="highlight">Активно использует</td>
+                            </tr>
+                            <tr>
+                                <td>Адаптивность</td>
+                                <td>Средняя</td>
+                                <td>Низкая</td>
+                                <td class="highlight">Высокая</td>
+                            </tr>
+                            <tr>
+                                <td>Память</td>
+                                <td>Ограниченная</td>
+                                <td>Stateless</td>
+                                <td class="highlight">Постоянная</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div> -->
+            <div style="position: absolute; right: 0; top: 20; text-align: end; color: rgb(167, 169, 169);">*Рекомендую пройти курсы "Введение в ИИ-агенты" и </br>"Работа с LLM GigaChat" для общего понимания</div>
+            </div>
+        </div>
+
+        <!-- Slide 2: Процесс внедрения -->
+        <div class="slide" data-slide="2">
+            <div class="slide-content">
+                <div class="slide-number">2 / 14</div>
+                <h1>Этапы внедрения ИИ-агента</h1>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>Написание БТ</h3>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>Предварительная оценка зрелости</h3>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>Архитектура и аналитика</h3>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>Тестовая корзина</h3>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>Разработка</h3>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>Оценка зрелости</h3>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>Показ функциональности</h3>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>Запуск пилота</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: Рабочая группа -->
+        <div class="slide" data-slide="3">
+            <div class="slide-content">
+                <div class="slide-number">3 / 14</div>
+                <h1>Рабочая группа</h1>
+                <div class="signs-grid">
+                    <div class="sign-item">
+                        <div class="sign-number">1</div>
+                        <h3>Бизнес-аналитик</h3>
+                        <p>Анализ и выстраивание клиентского пути, написание БТ</p>
+                    </div>
+                    <div class="sign-item">
+                        <div class="sign-number">2</div>
+                        <h3>Системный аналитик</h3>
+                        <p>Системная анатилика и архитектура</p>
+                    </div>
+                    <div class="sign-item">
+                        <div class="sign-number">3</div>
+                        <h3>Промт-инженер/Data Science</h3>
+                        <p>Написание инструментов и промтов</p>
+                    </div>
+                    <div class="sign-item">
+                        <div class="sign-number">4</div>
+                        <h3>Backend-разработчик</h3>
+                        <p>Разработка SmartApp, настройка логирования на бэкенде</p>
+                    </div>
+                    <div class="sign-item">
+                        <div class="sign-number">5</div>
+                        <h3>Скрипт-инженер</h3>
+                        <p>Разработка логики взаимодействия по цепочке клиент-бот-агент</p>
+                    </div>
+                    <div class="sign-item">
+                        <div class="sign-number">6</div>
+                        <h3>Data Analyst/Data Science</h3>
+                        <p>Оценка качетсва работы агента, подведение итогов</p>
+                    </div>
+                    <div class="sign-item">
+                        <div class="sign-number">7</div>
+                        <h3>Delivery Manager</h3>
+                        <p>Сопровождение релиза</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: Бизнес-требрвания -->
+        <div class="slide" data-slide="4">
+            <div class="slide-content">
+                <div class="slide-number">4 / 14</div>
+                <h1>Бизнес-требования</h1>
+                <div class="problems-list">
+                    <div class="test-item">
+                        <div class="test-number">1</div>
+                        <div class="problem-content">
+                            <h3>Потребители Агента</h3>
+                            <p>Например, клиенты Самоката, написавшие в чат Самоката и попавшие в сценарий Статус заказа</p>
+                        </div>
+                    </div>
+                    <div class="test-item">
+                        <div class="test-number">2</div>
+                        <div class="problem-content">
+                            <h3>User story</h3>
+                            <p>Я, как клиент Самоката, написавший в ЧБ и попавший в сценарий Статус заказа, хочу иметь возможность в чат-боте:</p>
+                            <p>1. Узнать статус своего заказа</p>
+                            <p>2. Узнать ориентировочное время доставки</p>
+                            <p>3. ...</p>
+                        </div>
+                    </div>
+                    <div class="test-item">
+                        <div class="test-number">3</div>
+                        <div class="problem-content">
+                            <h3>AS IS</h3>
+                            <p>Клиент пишет в чат Самоката, чтобы узнать статус заказа. Чат-бот предлагает перевести клиента на оператора или следить за статусом в МП.</p>
+                        </div>
+                    </div>
+                    <div class="test-item">
+                        <div class="test-number">4</div>
+                        <div class="problem-content">
+                            <h3>Описание требований</h3>
+                            <p>1. Реализовать возможность обращаться ...</p>
+                            <p>2. Реализовать возможность получать из ... данные о ...</p>
+                        </div>
+                    </div>
+                    <div class="test-item">
+                        <div class="test-number">5</div>
+                        <div class="problem-content">
+                            <h3>Описание сценариев использования</h3>
+                            <p>1. Клиент открывает ЧБ Самоката</p>
+                            <p>2. Клиент пишет, что хочет узнать статус заказа</p>
+                            <p>3. ...</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Азхитектура -->
+        <div class="slide" data-slide="5">
+            <div class="slide-content">
+                <div class="slide-number">5 / 14</div>
+                <h1>Архитектура</h1>
+                <div style="text-align: center;">
+                    <img src="arch.png" style="height: 650px; width: 90%;"/>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Тестовая корзина -->
+        <div class="slide" data-slide="6">
+            <div class="slide-content">
+                <div class="slide-number">6 / 14</div>
+                <h1>Тестовая корзина</h1>
+                <div class="problems-list">
+                    <div class="test-item">
+                        <div class="test-number">1</div>
+                        <div class="problem-content">
+                            <h3>Топовые запросы, которые должен решать агент</h3>
+                            <p>Например, топ запросов клиента в навыке IVR</p>
+                        </div>
+                    </div>
+                    <div class="test-item">
+                        <div class="test-number">2</div>
+                        <div class="problem-content">
+                            <h3>Запросы, эмулирующие ошибки сервисов</h3>
+                            <p>Например, ответ от смежной АС, к которой должен обращаться агент, недоступен / вернул ошибку</p>
+                        </div>
+                    </div>
+                    <div class="test-item">
+                        <div class="test-number">3</div>
+                        <div class="problem-content">
+                            <h3>Запросы, которые могут нанести репутационные риски в зависимости от поведения пользователей в навыке</h3>
+                            <p>Например, если клиент начнет ругаться оскорбительной лексикой внутри диалога с Агентом</p>
+                        </div>
+                    </div>
+                    <div class="test-item">
+                        <div class="test-number">4</div>
+                        <div class="problem-content">
+                            <h3>Запросы, которые могут потенциально сломать / стать причиной некорректной работы Агента</h3>
+                            <p>Например, если клиент назовет несуществующие данные заказа, попросит перенести заказ на прошедшую дату</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Оценка зрелости -->
+        <div class="slide" data-slide="7">
+            <div class="slide-content">
+                <div class="slide-number">7 / 14</div>
+                <h1>Оценка зрелости ИИ-агента</h1>
+                <div class="signs-grid">
+                    <div class="sign-item">
+                        <div class="sign-number">1</div>
+                        <h3>Наличие роли</h3>
+                        <p>Не просто исполнитель команд</p>
+                    </div>
+                    <div class="sign-item">
+                        <div class="sign-number">2</div>
+                        <h3>НЕдетерминированная логика</h3>
+                        <p>Адаптивные рассуждения</p>
+                    </div>
+                    <div class="sign-item">
+                        <div class="sign-number">3</div>
+                        <h3>Самооценка действий</h3>
+                        <p>Анализ качества результатов</p>
+                    </div>
+                    <div class="sign-item">
+                        <div class="sign-number">4</div>
+                        <h3>Работа с данными сессии</h3>
+                        <p>Сохранение контекста между взаимодействиями</p>
+                    </div>
+                    <div class="sign-item">
+                        <div class="sign-number">5</div>
+                        <h3>Дополнительные знания</h3>
+                        <p>Использование RAG и внешних источников</p>
+                    </div>
+                    <div class="sign-item">
+                        <div class="sign-number">6</div>
+                        <h3>Автономность решений</h3>
+                        <p>НЕ запрашивает подтверждение каждого действия</p>
+                    </div>
+                    <div class="sign-item">
+                        <div class="sign-number">7</div>
+                        <h3>Использование инструментов</h3>
+                        <p>БД, API, функции, другие агенты</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Типовая схема -->
+        <div class="slide" data-slide="8">
+            <div class="slide-content">
+                <div class="slide-number">8 / 14</div>
+                <h1>Типовая схема ИИ-агента</h1>
+                <div style="text-align: center;">
+                    <img src="diagram.png" style="width: auto; height: 600px;"/>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Пилот -->
+        <div class="slide" data-slide="9">
+            <div class="slide-content">
+                <div class="slide-number">9 / 14</div>
+                <h1>Пилот</h1>
+                <div class="signs-grid">
+                    <div class="test-item">
+                        <div class="test-number">1</div>
+                        <div class="problem-content">
+                            <h3>Запуск на большом потоке клиентов на короткий промежуток времени</h3>
+                            <p>Если нужно оперативно собрать данные для доработок</p>
+                        </div>
+                    </div>
+                    <div class="test-item">
+                        <div class="test-number">2</div>
+                        <div class="problem-content">
+                            <h3>Запуск на маленький процент клиентов на длительный промежуток времени</h3>
+                            <p>Если требуются постоянные корректировки промтов и логики, которые нужно сразу катить на прод и оценивать</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide" data-slide="10">
+            <div class="slide-content">
+                <div class="slide-number">10 / 14</div>
+                <h1>Галлюцинации</h1>
+                <div class="problems-list">
+                    <div class="test-item">
+                        <div class="test-number">1</div>
+                        <div class="problem-content">
+                            <h3>Неправильно понимает свою роль, из-за чего представляется тем, кем не является</h3>
+                            <p>"Здравствуйте, меня зовут Татьяна. Я специалист службы заботы о клиентах банка ВТБ. Какой у Вас вопрос?"</p>
+                            <p>"Здравствуйте, меня зовут Татьяна. Я специалист службы безопасности банка Сбербанк. Какой у Вас вопрос?"</p>
+                        </div>
+                    </div>
+                    <div class="test-item">
+                        <div class="test-number">2</div>
+                        <div class="problem-content">
+                            <h3>Консультация клиента по несуществующим у него продуктам</h3>
+                            <p>Например, консультация по несуществующей карте/заявлению</p>
+                        </div>
+                    </div>
+                    <div class="test-item">
+                        <div class="test-number">3</div>
+                        <div class="problem-content">
+                            <h3>Эффект неожиданности в виде шуток</h3>
+                            <p>Например, начинает диалог с клиентом с шутки и только потом спрашивает "Какой у Вас вопрос"</p>
+                        </div>
+                    </div>
+                    <div class="signs-grid">
+                    <div class="sign-item">
+                        <div class="sign-number">?</div>
+                        <h3>Как лечили?</h3>
+                        <p>Регулярная корректировка промтов</p>
+                    </div>
+                    <div class="sign-item">
+                        <div class="sign-number">?</div>
+                        <h3>Удалось побороть?</h3>
+                        <p>Полностью полечить все галлюцинации на данный момент невозможно</p>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide" data-slide="11">
+            <div class="slide-content">
+                <div class="slide-number">11 / 14</div>
+                <h1>Производительность</h1>
+                <div class="problems-list">
+                    <div class="test-item">
+                        <div class="test-number">1</div>
+                        <div class="problem-content">
+                            <h3>Долгое ожидание ответа от GigaChat</h3>
+                            <p>На один запрос GigaChat могло уходить до 6 секунд</p>
+                        </div>
+                    </div>
+                    <div class="test-item">
+                        <div class="test-number">2</div>
+                        <div class="problem-content">
+                            <h3>Ограничение на количество токенов в промте</h3>
+                            <p>В мультиагентной системе иногда контекст становился настолько большим, что GigaChat падал в ошибку</p>
+                        </div>
+                    </div>
+                    <div class="signs-grid">
+                    <div class="sign-item">
+                        <div class="sign-number">?</div>
+                        <h3>Как лечили?</h3>
+                        <p>Корректировка промтов, увеличение количества потоков и токенов</p>
+                    </div>
+                    <div class="sign-item">
+                        <div class="sign-number">?</div>
+                        <h3>Удалось побороть?</h3>
+                        <p>Не полностью. Во время пиковой нагрузки GigaChat все еще долго отвечает</p>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide" data-slide="12">
+            <div class="slide-content">
+                <div class="slide-number">12 / 14</div>
+                <h1>Платформенные ограничения</h1>
+                <div class="problems-list">
+                    <div class="test-item">
+                        <div class="test-number">1</div>
+                        <div class="problem-content">
+                            <h3>Попадание на аварийную схему из-за долгой тишины</h3>
+                            <p>У IVR есть ограничение на 12 секунд полной тишины. В момент долгой работы GigaChat некоторые клиенты попадали на аварийную схему и затем на оператора.</p>
+                        </div>
+                    </div>
+                    <div class="test-item">
+                        <div class="test-number">2</div>
+                        <div class="problem-content">
+                            <h3>Нет возможности вызывать функции асинхронно</h3>
+                            <p>В отсутствии необходимой ручки, а также возможности вызова функций асинхронно, не смогли без багов реализовать функционал закрытие чата у оператора на случай сброса клиента</p>
+                        </div>
+                    </div>
+                    <div class="signs-grid">
+                    <div class="sign-item">
+                        <div class="sign-number">?</div>
+                        <h3>Как лечили?</h3>
+                        <p>В первом случае, лечили промежуточными/фоновыми роликами, уменьшением на стороне IVR времени ожидания ответа от агента. Во втором случае, иницитивой на разработку необходимой ручки, принятием временной неизбежности багов</p>
+                    </div>
+                    <div class="sign-item">
+                        <div class="sign-number">?</div>
+                        <h3>Удалось побороть?</h3>
+                        <p>На данный момент возможно эта проблема полностью решена</p>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide" data-slide="13">
+            <div class="slide-content">
+                <div class="slide-number">13 / 14</div>
+                <h1>Настройка промтов</h1>
+                <div class="problems-list">
+                    <div class="test-item">
+                        <div class="test-number">1</div>
+                        <div class="problem-content">
+                            <h3>Избыточно частая корректировка промтов из-за галлюцинаций</h3>
+                            <p>В мультиагентой системе из-за галлюцинаций, связанных с ролью и профилем клиента, иногда приходилось править промты несколько раз в день</p>
+                        </div>
+                    </div>
+                    <div class="signs-grid">
+                    <div class="sign-item">
+                        <div class="sign-number">?</div>
+                        <h3>Как лечили?</h3>
+                        <p>Никак, это естественный процесс. Из-за некоторых единичных галлюцинаций не правили промт</p>
+                    </div>
+                    <div class="sign-item">
+                        <div class="sign-number">?</div>
+                        <h3>Удалось побороть?</h3>
+                        <p>Нет, на первых этапах работы агета это приемлемо</p>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide" data-slide="14">
+            <div class="slide-content">
+                <div class="slide-number">14 / 14</div>
+                <h1>Управление ожиданиями</h1>
+                <div class="problems-list">
+                    <div class="test-item">
+                        <div class="test-number">1</div>
+                        <div class="problem-content">
+                            <h3>Запуск агента на замену существующему сценарию не гарантирует положительный рост метрик</h3>
+                            <p>"Жизнь такова и больше никакова"</p>
+                            <p>Распространяется на начальное время работы агента и лечится его доработкой</p>
+                        </div>
+                    </div>
+                    <div class="test-item">
+                        <div class="test-number">2</div>
+                        <div class="problem-content">
+                            <h3>Разработка и сопровождение работы агентов затратнее по ресурсам команды</h3>
+                            <p>Может быть проблематичным при сильно забитым бэклоге</p>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Problem  -->
+        <!-- <div class="slide" data-slide="11">
+            <div class="slide-content">
+                <div class="slide-number">11 / 11</div>
+                <h1>Потенциальные сложности</h1>
+                <div class="problems-list">
+                    <div class="problem-item">
+                        <div class="problem-number">1</div>
+                        <div class="problem-content">
+                            <h3>Галлюцинации</h3>
+                            <p>Неточная или выдуманная информация от ИИ</p>
+                            <p>1. Представляется сотрудником банка ВТБ/сотрудником службы безопасности банка и т.п.</p>
+                            <p>2. Придумывает несуществующие продукты клиента, например, дебетовую карты или заявление</p>
+                            <p>3. Шутит прежде чем задать вопрос клиенту или ответить на его вопрос</p>
+                            <p>Как лечили? Корректировкой промтов</p>
+                            <p>Удалось ли полностью вылечить? Нет, все случаи галлюцинаций покрыть невозможно</p>
+                        </div>
+                    </div>
+                    <div class="problem-item">
+                        <div class="problem-number">2</div>
+                        <div class="problem-content">
+                            <h3>Производительность</h3>
+                            <p>Долгое ожидание ответа и ошибки ЛЛМ</p>
+                        </div>
+                    </div>
+                    <div class="problem-item">
+                        <div class="problem-number">3</div>
+                        <div class="problem-content">
+                            <h3>Платформенные ограничения</h3>
+                            <p>Особенности инфраструктуры и окружения</p>
+                        </div>
+                    </div>
+                    <div class="problem-item">
+                        <div class="problem-number">4</div>
+                        <div class="problem-content">
+                            <h3>Настройка промптов</h3>
+                            <p>Бесконечная правка и оптимизация</p>
+                        </div>
+                    </div>
+                    <div class="problem-item">
+                        <div class="problem-number">5</div>
+                        <div class="problem-content">
+                            <h3>Управление ожиданиями</h3>
+                            <p>Разрыв между планами и реальностью</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <button class="nav-btn prev-btn" id="prevBtn">
+                <span>‹</span> Назад
+            </button>
+            <button class="nav-btn next-btn" id="nextBtn">
+                Вперед <span>›</span>
+            </button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
